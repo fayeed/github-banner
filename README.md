@@ -10,6 +10,8 @@ npm run dev
 yarn dev
 ```
 
+![sfas](http://localhost:3000/api/social?headline=Hi,%20I%20am%20Fayeed%20Pawaskar%20-%20%3Cbr%20/%3E%20Code%20Tinkerer%20%26%20Software%20Engineer)
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
