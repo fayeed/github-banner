@@ -32,13 +32,20 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   console.log(arr.length);
 
   res.send(
-    getBanner(headline, subheading, content[random(arr.length - 1)], {
-      mail,
-      twitter,
-      linkedIn,
-      github,
-      stackoverflow,
-      rss,
-    })
+    getBanner(
+      headline,
+      subheading,
+      content[random(arr.length - 1)],
+      {
+        mail,
+        twitter,
+        linkedIn,
+        github,
+        stackoverflow,
+        rss,
+      },
+      false,
+      []
+    )
   );
 };

@@ -21,7 +21,9 @@ export const getBanner = (
     github: string;
     stackoverflow: string;
     rss: string;
-  }
+  },
+  gradient: boolean,
+  gradientColors: string[]
 ) => {
   const scheme = ["mono", "contrast", "triade", "tetrade", "analogic"];
 
@@ -34,13 +36,26 @@ export const getBanner = (
     .variation(variation[random(4)])
     .web_safe(true);
 
-  const colors = generator.colors();
+  const colors = !gradient ? generator.colors() : ["fff", "fff", "fff", "fff"];
+
+  const gradColors = gradientColors ?? generator.colors(); // ["fc5c7d", "6a82fb", "05dfd7"]
 
   return `<?xml version="1.0" encoding="UTF-8"?>
   <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" style="border-radius:8px;" fill="none">
-    <foreignObject width="100%" height="100%">
+  <foreignObject width="100%" height="100%">
       <div xmlns="http://www.w3.org/1999/xhtml">
         <style>
+        @keyframes gradientBackground {
+					0% {
+						background-position: 0% 50%;
+					}
+					50% {
+						background-position: 100% 50%;
+					}
+					100% {
+						background-position: 0% 50%;
+					}
+				}
           .header {
             position: relative;
             height: 280px;
@@ -50,6 +65,13 @@ export const getBanner = (
             border-radius:8px;
             font-family: sans-serif;
             overflow: hidden;
+            ${
+              gradient
+                ? `background: linear-gradient(-45deg, #${gradColors[0]}, #${gradColors[1]}, #${gradColors[2]});
+            background-size: 600% 400%;
+            animation: gradientBackground 10s ease infinite;`
+                : ""
+            }
           }
           .person-container {
             position: absolute;
@@ -68,20 +90,6 @@ export const getBanner = (
             font-size: 18px;
             font-weight: 400;
             color: #${colors[2]};
-          }
-          .landing-content a {
-            font-size: 18px;
-            position: relative;
-            cursor: pointer;
-            text-decoration: none;
-          }
-          .landing-content a::before {
-            content: " ";
-            position: absolute;
-            bottom: 3px;
-            left: -2.5%;
-            height: 6px;
-            width: 105%;
           }
           .footer {
             position: absolute;
@@ -107,17 +115,6 @@ export const getBanner = (
           .footer-link > div {
             margin-right: 8px;
           }
-          .footer-link::before {
-            content: " ";
-            position: absolute;
-            bottom: 3px;
-            left: -2.5%;
-            height: 6px;
-            width: 105%;
-          }
-          .footer-link-hide::before {
-            height: 0px;
-          }
           .footer-text {
             font-size: 16px;
             margin-bottom: 12px;
@@ -136,7 +133,7 @@ export const getBanner = (
         <div>
         </div>
           <div class="header" >
-          <h1 class="landing-heading" >
+          <h1 class="landing-heading" id="heading">
            ${headline.replace("&", "&amp;")}
           </h1>
           <p class="landing-content" >
