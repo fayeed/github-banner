@@ -1,5 +1,5 @@
 import randomColor from "randomcolor";
-import { random } from "../api/social";
+import { random } from "../pages/api/social";
 import {
   linkedin,
   github,
