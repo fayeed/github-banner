@@ -23,16 +23,18 @@ export const getBanner = (
     rss: string;
   }
 ) => {
-  const luminosity = ["light", "dark"];
+  const scheme = ["mono", "contrast", "triade", "tetrade", "analogic"];
 
-  const lim = luminosity[random(2)];
+  const variation = ["default", "pastel", "light", "hard"];
 
-  console.log("headline:", lim);
+  const generator = new ColorScheme();
+  generator
+    .from_hue(random(360))
+    .scheme(scheme[random(5)])
+    .variation(variation[random(4)])
+    .web_safe(true);
 
-  const scheme = new ColorScheme();
-  scheme.from_hue(21).scheme("mono").variation("soft");
-
-  const colors = scheme.colors();
+  const colors = generator.colors();
 
   return `<?xml version="1.0" encoding="UTF-8"?>
   <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" style="border-radius:8px;" fill="none">
@@ -42,10 +44,8 @@ export const getBanner = (
           .header {
             position: relative;
             height: 280px;
-            background: ${randomColor({ luminosity: lim })};
-            color: ${randomColor({
-              luminosity: lim === "light" ? "dark" : "light",
-            })};
+            background: #${colors[1]};
+            color: #${colors[3]};
             padding: 10px 20px;
             border-radius:8px;
             font-family: sans-serif;
@@ -62,16 +62,12 @@ export const getBanner = (
           }
           .landing-heading {
             font-size: 36px;
-            color: ${randomColor({
-              luminosity: lim === "light" ? "dark" : "light",
-            })};
+            color: #${colors[2]};
           }
           .landing-content {
             font-size: 18px;
             font-weight: 400;
-            color: ${randomColor({
-              luminosity: lim === "light" ? "dark" : "light",
-            })};
+            color: #${colors[2]};
           }
           .landing-content a {
             font-size: 18px;
@@ -94,9 +90,7 @@ export const getBanner = (
             flex-direction: column;
             margin-bottom: 0px;
             margin-top: 140px;
-            color: ${randomColor({
-              luminosity: lim === "light" ? "dark" : "light",
-            })};
+            color: #${colors[2]};
           }
           .footer-content {
             font-size: 16px;
@@ -160,7 +154,7 @@ export const getBanner = (
             rel="noopener"
           >
           <div>
-           ${linkedin(lim === "light" ? "#000" : "#fff")}
+           ${linkedin(`#${colors[3]}`)}
           </div>
           <div>
             ${social.linkedIn}
@@ -178,7 +172,7 @@ export const getBanner = (
             rel="noopener"
           >
           <div>
-          ${github(lim === "light" ? "#000" : "#fff")}
+          ${github(`#${colors[3]}`)}
           </div>
           <div>
           ${social.github}
@@ -196,7 +190,7 @@ export const getBanner = (
             rel="noopener"
           >
           <div>
-          ${mail(lim === "light" ? "#000" : "#fff")}
+          ${mail(`#${colors[3]}`)}
           
           </div>
           <div>${social.mail}</div>
@@ -213,7 +207,7 @@ export const getBanner = (
             rel="noopener"
           >
           <div>
-          ${twitter(lim === "light" ? "#000" : "#fff")}
+          ${twitter(`#${colors[3]}`)}
           </div>
           <div>${social.twitter}</div>
           </a>`
@@ -229,7 +223,7 @@ export const getBanner = (
             rel="noopener"
           >
           <div>
-          ${stackoverflow(lim === "light" ? "#000" : "#fff")}
+          ${stackoverflow(`#${colors[3]}`)}
           </div>
           <div>${social.stackoverflow}</div>
           </a>`
@@ -244,7 +238,7 @@ export const getBanner = (
             aria-label="Rss"
           >
           <div>
-          ${rss(lim === "light" ? "#000" : "#fff")}
+          ${rss(`#${colors[3]}`)}
           </div>
           <div>${social.rss}</div>
           </a>`
