@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "color-scheme": "^1.0.1",
     "next": "9.5.2",
     "randomcolor": "^0.6.2",
     "react": "16.13.1",

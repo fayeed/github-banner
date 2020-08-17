@@ -5,9 +5,40 @@ import content from "../../public/svgs.json";
 export const random = (max: number) => Math.floor(Math.random() * max + 0);
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { headline } = req.query as { headline: string };
+  const {
+    headline,
+    subheading,
+    mail,
+    twitter,
+    github,
+    linkedIn,
+    stackoverflow,
+    rss,
+  } = req.query as {
+    headline: string;
+    subheading: string;
+    mail?: string;
+    twitter?: string;
+    linkedIn?: string;
+    github?: string;
+    stackoverflow?: string;
+    rss?: string;
+  };
 
-  console.log(headline, req.query);
+  res.setHeader("Content-Type", "image/svg+xml");
 
-  res.send(getBanner(headline, content[random(50 - 1)]));
+  const arr = content as string[];
+
+  console.log(arr.length);
+
+  res.send(
+    getBanner(headline, subheading, content[random(arr.length - 1)], {
+      mail,
+      twitter,
+      linkedIn,
+      github,
+      stackoverflow,
+      rss,
+    })
+  );
 };
