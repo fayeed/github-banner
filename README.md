@@ -10,7 +10,7 @@ npm run dev
 yarn dev
 ```
 
-<img src="http://localhost:3000/api/social?headline=Hi%2C%20I%20am%20Fayeed%20Pawaskar%20-%20%3Cbr%20%2F%3E%20Code%20Tinkerer%20%26%20Software%20Engineer&subheading=I%E2%80%99m%20open%20to%20new%20opportunities,%20I%20mostly%20work%20with%20ReactJS,%20NodeJS%20%3Cbr%20/%3E%20Flutter,%20if%20you%20think%20I%20would%20be%20a%20good%20fit%20for%20your%20company%20contact%20me.&linkedIn=fayeed.pawaskar&github=@fayeed&stackoverflow=@fayeed&twitter=@fayeedP&rss=fayeed.dev/rss.xml&mail=fayeed@live.com" height="300" width="100%" />
+<img src="http://localhost:3000/api/social?headline=Hi%2C%20I%20am%20%3Cu%3EFayeed%20Pawaskar%3C%2Fu%3E%20-%20%3Cbr%20%2F%3E%20Code%20Tinkerer%20%26%20Software%20Engineer&subheading=I%E2%80%99m%20open%20to%20new%20opportunities,%20I%20mostly%20work%20with%20ReactJS,%20NodeJS%20%3Cbr%20/%3E%20Flutter,%20if%20you%20think%20I%20would%20be%20a%20good%20fit%20for%20your%20company%20contact%20me.&linkedIn=fayeed.pawaskar&github=@fayeed&stackoverflow=@fayeed&twitter=@fayeedP&rss=fayeed.dev/rss.xml&mail=fayeed@live.com" height="300" width="100%" />
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

@@ -35,7 +35,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     getBanner(
       headline,
       subheading,
-      content[random(arr.length - 1)],
+      content[random(arr.length - 1)].data,
       {
         mail,
         twitter,

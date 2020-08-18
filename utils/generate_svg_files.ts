@@ -30,11 +30,16 @@ const getAllFiles = function (dirPath, arrayOfFiles?: string[]) {
 export const generateSvgFiles = async () => {
   const p = pathed.join(
     serverRuntimeConfig.PROJECT_ROOT,
-    "./public/illsutrations/openpeeps"
+    "./public/illsutrations"
   );
   const files = getAllFiles(p);
 
-  let content = [];
+  let contents: {
+    name: string;
+    path: string;
+    data: string;
+    group: string;
+  }[] = [];
 
   for (const file of files) {
     const data = (await returnSvg(file)).replace(
@@ -42,13 +47,27 @@ export const generateSvgFiles = async () => {
       ""
     ) as string;
 
-    if (!data.includes("\u0000")) content.push(data);
+    if (!data.includes("\u0000")) {
+      if (file.includes("openpeeps-mono")) {
+        contents.push({
+          name: pathed.basename(file),
+          data,
+          path: file,
+          group: "openpeeps-mono",
+        });
+      } else if (file.includes("openpeeps")) {
+        contents.push({
+          name: pathed.basename(file),
+          data,
+          path: file,
+          group: "openpeeps",
+        });
+      }
+    }
   }
-
-  console.log();
 
   // writes RSS.xml to public directory
   const path = `${process.cwd()}/public/svgs.json`;
-  fs.writeFileSync(path, JSON.stringify(content), "utf8");
+  fs.writeFileSync(path, JSON.stringify(contents), "utf8");
   console.log(`generated RSS feed`);
 };

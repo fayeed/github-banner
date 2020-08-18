@@ -81,6 +81,7 @@ export const getBanner = (
           }
           .person-container > svg {
             height: 300px;
+            fill: #000;
           }
           .landing-heading {
             font-size: 36px;
