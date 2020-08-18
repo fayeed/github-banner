@@ -76,11 +76,12 @@ export const getBanner = (
           .person-container {
             position: absolute;
             bottom: -44px;
-            right: 0px;
+            right: 10px;
             transform: scaleX(-1);
           }
           .person-container > svg {
             height: 300px;
+            width: 300px;
             fill: #000;
           }
           .landing-heading {

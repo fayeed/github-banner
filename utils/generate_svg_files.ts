@@ -62,6 +62,13 @@ export const generateSvgFiles = async () => {
           path: file,
           group: "openpeeps",
         });
+      } else if (file.includes("opendoodles")) {
+        contents.push({
+          name: pathed.basename(file),
+          data,
+          path: file,
+          group: "opendoodles",
+        });
       }
     }
   }
