@@ -9,22 +9,34 @@ import {
   rss,
 } from "../icons/social";
 import ColorScheme from "color-scheme";
+import { LightenDarkenColor } from "./lighten_darken_color";
+import { SocialFooter } from "./social_footer";
+import {
+  BorderStyles,
+  TextStyles,
+  BackgroundStyles,
+  AvatarStyles,
+  SocialStyles,
+} from "../types/styles";
+import { SocialTypes } from "../types/social";
 
 export const getBanner = (
   headline: string,
   subheading: string,
   illustration: string,
-  social: {
-    mail: string;
-    twitter: string;
-    linkedIn: string;
-    github: string;
-    stackoverflow: string;
-    rss: string;
-  },
-  gradient: boolean,
-  gradientColors: string[]
+  social?: SocialTypes,
+  gradient?: boolean,
+  gradientColors?: string[],
+  alignItems?: string,
+  headingStyle?: TextStyles,
+  subheadingStyle?: TextStyles,
+  background?: BackgroundStyles,
+  border?: BorderStyles,
+  avatarStyle?: AvatarStyles,
+  socialStyle?: SocialStyles,
+  reverse?: boolean
 ) => {
+  console.log("what");
   const scheme = ["mono", "contrast", "triade", "tetrade", "analogic"];
 
   const variation = ["default", "pastel", "light", "hard"];
@@ -40,10 +52,22 @@ export const getBanner = (
 
   const gradColors = gradientColors ?? generator.colors(); // ["fc5c7d", "6a82fb", "05dfd7"]
 
+  const headingShadowColor = LightenDarkenColor(
+    headingStyle?.color.length > 0 ? headingStyle.color : `#${colors[2]}`,
+    -60
+  );
+
+  const subheadingShadowColor = LightenDarkenColor(
+    subheadingStyle?.color.length > 0
+      ? subheadingStyle?.color
+      : `#${colors[2]}`,
+    -60
+  );
+
   return `<?xml version="1.0" encoding="UTF-8"?>
-  <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" style="border-radius:8px;" fill="none">
+  <svg height="300" width="840" xmlns="http://www.w3.org/2000/svg" style="border-radius:8px;" fill="none">
   <foreignObject width="100%" height="100%">
-      <div xmlns="http://www.w3.org/1999/xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="height: 100%; width: 100%;">
         <style>
         @keyframes gradientBackground {
 					0% {
@@ -58,13 +82,25 @@ export const getBanner = (
 				}
           .header {
             position: relative;
-            height: 280px;
-            background: #${colors[1]};
+            background: ${
+              background?.color.length > 0 ? background.color : `#${colors[1]}`
+            };
+            height: 300px;
+            background-image: url("${background?.image}");
+            background-size: ${background?.size};
+            background-position: ${background?.position};
+            background-repeat: ${background?.repeat};
             color: #${colors[3]};
             padding: 10px 20px;
-            border-radius:8px;
+            border-radius: ${border?.radius}px;
+            border: ${border?.size}px solid ${
+    border?.color.length > 0 ? border.color : `#${colors[3]}`
+  };
             font-family: sans-serif;
             overflow: hidden;
+            display: flex;
+            flex-direction: ${reverse ? "row-reverse" : "row"};
+            align-items: ${alignItems};
             ${
               gradient
                 ? `background: linear-gradient(-45deg, #${gradColors[0]}, #${gradColors[1]}, #${gradColors[2]});
@@ -74,181 +110,66 @@ export const getBanner = (
             }
           }
           .person-container {
-            position: absolute;
-            bottom: -44px;
-            right: 10px;
-            transform: scaleX(-1);
+            transform: scaleX(${avatarStyle?.reverse ? 1 : -1});
           }
           .person-container > svg {
-            height: 300px;
-            width: 300px;
+            height: ${avatarStyle.height}px;
+            width: ${avatarStyle.width}px;
             fill: #000;
           }
           .landing-heading {
-            font-size: 36px;
+            font-size: 32px;
             color: #${colors[2]};
+            text-align: ${headingStyle.textAlign};
+            line-height: ${headingStyle.lineHeight};
+            font-size: ${headingStyle.fontSize};
+            font-weight: ${headingStyle.fontWeight};
+            color: ${headingStyle.color};
+            text-shadow: ${
+              headingStyle.thirdDim
+                ? `0 1px 0 ${headingShadowColor}, 0 2px 0 ${headingShadowColor}, 0 3px 0 ${headingShadowColor}, 0 4px 0 ${headingShadowColor}, 0 12px 5px rgba(0, 0, 0, 0.1)`
+                : ""
+            };
+            width: 100%;
           }
           .landing-content {
-            font-size: 18px;
-            font-weight: 400;
-            color: #${colors[2]};
-          }
-          .footer {
-            position: absolute;
-            bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 0px;
-            margin-top: 140px;
-            color: #${colors[2]};
-          }
-          .footer-content {
+            width: 100%;
             font-size: 16px;
-            margin-bottom: 0px;
-          }
-          .footer-link {
-            position: relative;
-            cursor: pointer;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            font-size: 14px;
-          }
-          .footer-link > div {
-            margin-right: 8px;
-          }
-          .footer-text {
-            font-size: 16px;
-            margin-bottom: 12px;
-          }
-          .footer-social {
-            display: flex;
-            align-items: center;
-            width: 420px;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 20px;
-            gap: 12px;
+            font-weight: 500;
+            text-align: ${subheadingStyle.textAlign};
+            color: #${colors[2]};
+            line-height: ${subheadingStyle.lineHeight};
+            font-size: ${subheadingStyle.fontSize};
+            font-weight: ${subheadingStyle.fontWeight};
+            color: ${subheadingStyle.color};
+            text-shadow: ${
+              subheadingStyle.thirdDim
+                ? `0 1px 0 ${subheadingShadowColor}, 0 2px 0 ${subheadingShadowColor}, 0 3px 0 ${subheadingShadowColor}, 0 4px 0 ${subheadingShadowColor}, 0 12px 5px rgba(0, 0, 0, 0.1)`
+                : ""
+            };
           }
         </style>
         <div>
         </div>
           <div class="header" >
-          <h1 class="landing-heading" id="heading">
-           ${headline.replace("&", "&amp;")}
-          </h1>
-          <p class="landing-content" >
-          ${subheading ? subheading : ""}
-          </p>
-      <div class="footer">
-        <div class="footer-social">
-          ${
-            social.linkedIn
-              ? `<a
-            class="footer-link footer-link-hide"
-            href="https://www.linkedin.com/in/fayeedpawaskar"
-            target="_blank"
-            aria-label="LinkedIn"
-            rel="noopener"
-          >
-          <div>
-           ${linkedin(`#${colors[3]}`)}
-          </div>
-          <div>
-            ${social.linkedIn}
-          </div>
-          </a>`
-              : ""
-          }
-          ${
-            social.github
-              ? `<a
-            class="footer-link footer-link-hide"
-            href="https://github.com/fayeed"
-            target="_blank"
-            aria-label="Github"
-            rel="noopener"
-          >
-          <div>
-          ${github(`#${colors[3]}`)}
-          </div>
-          <div>
-          ${social.github}
+            <div class="content">
+              <h1 class="landing-heading" id="heading">
+                ${headline.replace("&", "&amp;")}
+              </h1>
+              <p class="landing-content" >
+                ${subheading ? subheading : ""}
+              </p>
+              ${SocialFooter(social, colors, socialStyle)}
+            </div>
+            ${
+              !avatarStyle?.hide
+                ? `<div class='person-container'>
+            ${illustration}
+            </div>`
+                : ""
+            }
         </div>
-          </a>`
-              : ""
-          }
-          ${
-            social.mail
-              ? `<a
-            class="footer-link footer-link-hide"
-            href="mailto:fayeed52@gmail.com"
-            target="_blank"
-            aria-label="Mail"
-            rel="noopener"
-          >
-          <div>
-          ${mail(`#${colors[3]}`)}
-          
-          </div>
-          <div>${social.mail}</div>
-          </a>`
-              : ""
-          }
-          ${
-            social.twitter
-              ? `<a
-            class="footer-link footer-link-hide"
-            href="https://twitter.com/FayeedP"
-            target="_blank"
-            aria-label="Twitter"
-            rel="noopener"
-          >
-          <div>
-          ${twitter(`#${colors[3]}`)}
-          </div>
-          <div>${social.twitter}</div>
-          </a>`
-              : ""
-          }
-          ${
-            social.stackoverflow
-              ? `<a
-            class="footer-link footer-link-hide"
-            href="https://stackoverflow.com/users/6709477/fayeed"
-            target="_blank"
-            aria-label="Stackoverflow"
-            rel="noopener"
-          >
-          <div>
-          ${stackoverflow(`#${colors[3]}`)}
-          </div>
-          <div>${social.stackoverflow}</div>
-          </a>`
-              : ""
-          }
-          ${
-            social.rss
-              ? `<a
-            class="footer-link footer-link-hide"
-            href="/rss.xml"
-            target="_blank"
-            aria-label="Rss"
-          >
-          <div>
-          ${rss(`#${colors[3]}`)}
-          </div>
-          <div>${social.rss}</div>
-          </a>`
-              : ""
-          }
-        </div>
-      </div>
-          <div class="person-container">
-          ${illustration}
-          </div>
-        </div>
+
       </div>      
     </foreignObject>
   </svg>
