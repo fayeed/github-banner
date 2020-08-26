@@ -32,7 +32,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader("Content-Type", "image/svg+xml");
   console.log("again", req.method);
 
-  const arr = content as any[];
+  const arr = content as {
+    name: string;
+    data: string;
+    path: string;
+    group: string;
+  }[];
 
   const banner = getBanner(
     heading,
