@@ -100,7 +100,6 @@ export const getBanner = (
             overflow: hidden;
             display: flex;
             flex-direction: ${reverse ? "row-reverse" : "row"};
-            align-items: ${alignItems};
             ${
               gradient
                 ? `background: linear-gradient(-45deg, #${gradColors[0]}, #${gradColors[1]}, #${gradColors[2]});
@@ -108,6 +107,12 @@ export const getBanner = (
             animation: gradientBackground 10s ease infinite;`
                 : ""
             }
+          }
+          .content {
+            display: flex;
+            flex-direction: column;
+            align-items: ${alignItems};
+            flex: 1;
           }
           .person-container {
             transform: scaleX(${avatarStyle?.reverse ? 1 : -1});
@@ -122,7 +127,7 @@ export const getBanner = (
             color: #${colors[2]};
             text-align: ${headingStyle.textAlign};
             line-height: ${headingStyle.lineHeight};
-            font-size: ${headingStyle.fontSize};
+            font-size: ${headingStyle.fontSize}px;
             font-weight: ${headingStyle.fontWeight};
             color: ${headingStyle.color};
             text-shadow: ${
@@ -130,10 +135,10 @@ export const getBanner = (
                 ? `0 1px 0 ${headingShadowColor}, 0 2px 0 ${headingShadowColor}, 0 3px 0 ${headingShadowColor}, 0 4px 0 ${headingShadowColor}, 0 12px 5px rgba(0, 0, 0, 0.1)`
                 : ""
             };
-            width: 100%;
+            max-width: 100%;
           }
           .landing-content {
-            width: 100%;
+            max-width: 100%;
             font-size: 16px;
             font-weight: 500;
             text-align: ${subheadingStyle.textAlign};

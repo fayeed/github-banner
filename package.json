@@ -8,11 +8,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "color-scheme": "^1.0.1",
+    "material-ui-color-picker": "^3.5.1",
     "next": "9.5.2",
     "randomcolor": "^0.6.2",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-hook-form": "^6.4.1",
+    "use-clipboard-hook": "^1.1.1"
   },
   "devDependencies": {
     "@types/node": "^14.0.27",

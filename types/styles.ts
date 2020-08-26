@@ -13,7 +13,7 @@ export interface BorderStyles {
 }
 
 export interface TextStyles {
-  fontSize: string;
+  fontSize: number;
   textAlign: string;
   color: string;
   thirdDim: boolean;
@@ -33,6 +33,6 @@ export interface SocialStyles {
   fontSize: number;
   color: string;
   iconColor: string;
-  lineHeight: number;
-  fontWeight: number;
+  lineHeight: string;
+  fontWeight: string;
 }

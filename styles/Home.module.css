@@ -4,4 +4,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+}
+
+.banner {
+  position: fixed;
+  top: 0;
+  padding-top: 10px;
+  background-color: white;
+  z-index: 1000;
+}
+
+.link {
+  color: blue;
+  text-decoration: underline;
 }
