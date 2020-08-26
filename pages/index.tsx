@@ -24,7 +24,12 @@ import SocialFieldGroup from "../form/social_field_group";
 import { getForm } from "../hooks/form";
 import { useClipboard } from "use-clipboard-hook";
 
-const arr = content as string[];
+const arr = content as {
+  name: string;
+  data: string;
+  path: string;
+  group: string;
+}[];
 
 export default function Home() {
   const {
