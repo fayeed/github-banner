@@ -20,7 +20,7 @@ export default function SocialFieldGroup({
 }) {
   return (
     <div style={{ marginTop: 40 }}>
-      <h1>Social Fields</h1>
+      <h2>Social Fields</h2>
       <FormGroup>
         <FormControlLabel
           control={

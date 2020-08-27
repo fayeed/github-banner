@@ -9,9 +9,7 @@ import {
 } from "../types/styles";
 
 export function getForm() {
-  const [heading, setHeading] = useState(
-    "Hi I'm Fayeed Pawaskar - <br/> Code Tinkerer & Software Engineer"
-  );
+  const [heading, setHeading] = useState("Enter your heading");
   const [subheading, setSubheading] = useState("");
   const [showSocial, setShowSocial] = useState(true);
   const [social, setSocial] = useState<SocialTypes>({
@@ -55,7 +53,7 @@ export function getForm() {
     position: "center",
   });
   const [border, setBorder] = useState<BorderStyles>({
-    size: 4,
+    size: 0,
     color: "",
     radius: 8,
   });

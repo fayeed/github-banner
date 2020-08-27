@@ -19,3 +19,24 @@
   color: blue;
   text-decoration: underline;
 }
+
+.header {
+  text-align: center;
+  font-size: 32px;
+}
+
+.card {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  width: 300px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+}
+
+.card > div {
+  font-weight: bold;
+  font-size: 18px;
+}

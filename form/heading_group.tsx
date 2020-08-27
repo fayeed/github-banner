@@ -20,11 +20,13 @@ export default function HeadingGroup({
 }) {
   return (
     <div style={{ marginTop: 40 }}>
-      <h1>Heading Styles</h1>
+      <h2>Heading Styles</h2>
       <FormGroup>
         <div>
           <InputLabel>Heading Font Size</InputLabel>
           <Slider
+            min={24}
+            max={56}
             value={headingStyles.fontSize}
             onChange={(e, value) =>
               setHeadingStyles({

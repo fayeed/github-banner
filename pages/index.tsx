@@ -1,5 +1,5 @@
 import styles from "../styles/Home.module.css";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { getBanner } from "../utils/social_banner";
 import content from "../public/svgs.json";
 import social, { random } from "./api/social";
@@ -59,6 +59,8 @@ export default function Home() {
     setGradient,
   } = getForm();
 
+  const [randomNumber, setRandom] = useState(0);
+
   const { copy } = useClipboard();
 
   const getURL = () => {
@@ -113,6 +115,7 @@ export default function Home() {
       border,
       avatarStyles,
       socialStyles,
+      randomNumber,
     ]
   );
 
@@ -125,7 +128,7 @@ export default function Home() {
           }}
         />
         <div>
-          <Button>random</Button>
+          <Button onClick={() => setRandom(random(100))}>random</Button>
           <Button onClick={getURL}>copy</Button>
         </div>
       </div>
@@ -235,6 +238,20 @@ export default function Home() {
           Fayeed Pawaskar
         </a>
       </div>
+      <a
+        href="https://github.com/fayeed/github-banner"
+        target="_blank"
+        rel="noreferer nopener"
+      >
+        <div className={styles.card}>
+          <div>Github Banner</div>
+          <p>
+            Build custom github banners for your Github profiles, to add some
+            flair to your Readmes. Like the project, star the project by
+            clicking on the card.
+          </p>
+        </div>
+      </a>
     </div>
   );
 }

@@ -11,11 +11,13 @@ export default function BorderGroup({
 }) {
   return (
     <div style={{ marginTop: 40 }}>
-      <h1>Border Styles</h1>
+      <h2>Border Styles</h2>
       <FormGroup>
         <div>
           <InputLabel>Border Size</InputLabel>
           <Slider
+            min={0}
+            max={10}
             value={border.size}
             onChange={(e, value) =>
               setBorder({
@@ -35,6 +37,8 @@ export default function BorderGroup({
         <div>
           <InputLabel>Border Radius</InputLabel>
           <Slider
+            min={0}
+            max={50}
             value={border.radius}
             onChange={(e, value) =>
               setBorder({

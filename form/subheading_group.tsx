@@ -20,11 +20,13 @@ export default function SubheadingGroup({
 }) {
   return (
     <div style={{ marginTop: 40 }}>
-      <h1>Subheading Styles</h1>
+      <h2>Subheading Styles</h2>
       <FormGroup>
         <div>
           <InputLabel>SubHeading Font Size</InputLabel>
           <Slider
+            min={12}
+            max={36}
             value={subheadingStyles.fontSize}
             onChange={(e, value) =>
               setSubHeadingStyles({

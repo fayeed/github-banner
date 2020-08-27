@@ -18,11 +18,13 @@ export default function SocialGroup({
 }) {
   return (
     <div style={{ marginTop: 40 }}>
-      <h1>Social Styles</h1>
+      <h2>Social Styles</h2>
       <FormGroup>
         <div>
           <InputLabel>Social Font Size</InputLabel>
           <Slider
+            min={14}
+            max={32}
             value={socialStyles.fontSize}
             onChange={(e, value) =>
               setSocailStyles({

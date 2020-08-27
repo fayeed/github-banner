@@ -17,7 +17,7 @@ export default function BackgroundGroup({
 }) {
   return (
     <div style={{ marginTop: 40 }}>
-      <h1>Background Styles</h1>
+      <h2>Background Styles</h2>
       <FormGroup>
         <ColorPicker
           name="color"

@@ -16,11 +16,13 @@ export default function AvatarGroup({
 }) {
   return (
     <div style={{ marginTop: 40 }}>
-      <h1>Avatar Styles</h1>
+      <h2>Avatar Styles</h2>
       <FormGroup>
         <div>
           <InputLabel>Avatar Height</InputLabel>
           <Slider
+            min={60}
+            max={400}
             value={avatarStyles.height}
             onChange={(e, value) =>
               setAvatarStyles({
@@ -33,6 +35,8 @@ export default function AvatarGroup({
         <div>
           <InputLabel>Avatar Width</InputLabel>
           <Slider
+            min={60}
+            max={400}
             value={avatarStyles.width}
             onChange={(e, value) =>
               setAvatarStyles({
