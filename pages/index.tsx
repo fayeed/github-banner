@@ -41,6 +41,7 @@ export default function Home() {
     background,
     socialStyles,
     gradient,
+    reverse,
     alignItems,
     headingStyles,
     showSocial,
@@ -57,6 +58,7 @@ export default function Home() {
     setSocial,
     setAlignItems,
     setGradient,
+    setReverse,
   } = getForm();
 
   const [randomNumber, setRandom] = useState(0);
@@ -67,7 +69,7 @@ export default function Home() {
     const url = new URL(`${window.location.origin}/api/social/`);
     url.searchParams.append("heading", heading);
     url.searchParams.append("subheading", subheading);
-    url.searchParams.append("social", JSON.stringify(social));
+    url.searchParams.append("social", JSON.stringify(showSocial ? social : {}));
     url.searchParams.append("alignItems", alignItems);
     url.searchParams.append("headingStyles", JSON.stringify(headingStyles));
     url.searchParams.append(
@@ -78,6 +80,7 @@ export default function Home() {
     url.searchParams.append("background", JSON.stringify(background));
     url.searchParams.append("border", JSON.stringify(border));
     url.searchParams.append("avatarStyles", JSON.stringify(avatarStyles));
+    url.searchParams.append("gradient", gradient.toString());
 
     console.log(url.href);
 
@@ -100,7 +103,7 @@ export default function Home() {
         border,
         avatarStyles,
         socialStyles,
-        false
+        reverse
       ),
     [
       heading,
@@ -116,6 +119,7 @@ export default function Home() {
       avatarStyles,
       socialStyles,
       randomNumber,
+      reverse,
     ]
   );
 
@@ -152,6 +156,23 @@ export default function Home() {
           value={subheading}
           onChange={(e) => setSubheading(e.target.value)}
         />
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginTop: 10,
+          }}
+        >
+          <InputLabel>Reverse content</InputLabel>
+          <Switch
+            type="checkbox"
+            placeholder="enter your title here..."
+            name="reverse"
+            checked={reverse}
+            onChange={(e) => setReverse(e.target.checked)}
+          />
+        </div>
 
         <SocialFieldGroup
           setShowSocial={setShowSocial}

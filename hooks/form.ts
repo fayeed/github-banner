@@ -12,6 +12,7 @@ export function getForm() {
   const [heading, setHeading] = useState("Enter your heading");
   const [subheading, setSubheading] = useState("");
   const [showSocial, setShowSocial] = useState(true);
+  const [reverse, setReverse] = useState(false);
   const [social, setSocial] = useState<SocialTypes>({
     mail: "",
     linkedIn: "",
@@ -78,6 +79,7 @@ export function getForm() {
     headingStyles,
     showSocial,
     social,
+    reverse,
     setHeading,
     setSubheading,
     setAvatarStyles,
@@ -90,5 +92,6 @@ export function getForm() {
     setSocial,
     setAlignItems,
     setGradient,
+    setReverse,
   };
 }

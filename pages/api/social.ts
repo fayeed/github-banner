@@ -16,6 +16,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     border,
     avatarStyles,
     socialStyles,
+    gradient,
+    reverse,
   } = req.query as {
     heading: string;
     subheading: string;
@@ -27,10 +29,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     border?: string;
     avatarStyles?: string;
     socialStyles?: string;
+    gradient?: string;
+    reverse?: string;
   };
 
   res.setHeader("Content-Type", "image/svg+xml");
-  console.log("again", req.method);
 
   const arr = content as {
     name: string;
@@ -44,8 +47,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     subheading,
     content[random(arr.length - 1)].data,
     JSON.parse(social),
-    false,
-    [],
+    gradient === "true",
+    undefined,
     alignItems,
     JSON.parse(headingStyles),
     JSON.parse(subheadingStyles),
@@ -53,7 +56,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     JSON.parse(border),
     JSON.parse(avatarStyles),
     JSON.parse(socialStyles),
-    false
+    reverse === "true"
   );
 
   return res.send(banner);
