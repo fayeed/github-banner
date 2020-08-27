@@ -144,7 +144,7 @@ export const getBanner = (
             text-align: ${subheadingStyle.textAlign};
             color: #${colors[2]};
             line-height: ${subheadingStyle.lineHeight};
-            font-size: ${subheadingStyle.fontSize};
+            font-size: ${subheadingStyle.fontSize}px;
             font-weight: ${subheadingStyle.fontWeight};
             color: ${subheadingStyle.color};
             text-shadow: ${
