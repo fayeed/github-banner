@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<img src='https://github-banner.vercel.app/api/social/?heading=GITHUB+BANNER&subheading=Build+custom+Github+banners+for+your+Github+profiles%2C+to+add+some+flair+to+your+Readmes.+Like+the+project%2C+star+the+repo.&social=%7B%7D&alignItems=center&headingStyles=%7B%22fontSize%22%3A52%2C%22textAlign%22%3A%22center%22%2C%22color%22%3A%22%22%2C%22thirdDim%22%3Atrue%2C%22lineHeight%22%3A%22%22%2C%22fontWeight%22%3A%22700%22%7D&subheadingStyles=%7B%22fontSize%22%3A24%2C%22textAlign%22%3A%22center%22%2C%22color%22%3A%22%22%2C%22thirdDim%22%3Afalse%2C%22lineHeight%22%3A%22%22%2C%22fontWeight%22%3A%22500%22%7D&socialStyles=%7B%22fontSize%22%3A14%2C%22color%22%3A%22%22%2C%22iconColor%22%3A%22%22%2C%22lineHeight%22%3A%221%22%2C%22fontWeight%22%3A%22500%22%7D&background=%7B%22color%22%3A%22%22%2C%22image%22%3A%22%22%2C%22size%22%3A%22contain%22%2C%22repeat%22%3A%22no-repeat%22%2C%22position%22%3A%22center%22%7D&border=%7B%22size%22%3A0%2C%22color%22%3A%22%22%2C%22radius%22%3A8%7D&avatarStyles=%7B%22height%22%3A320%2C%22width%22%3A250%2C%22reverse%22%3Afalse%2C%22name%22%3A%22%22%2C%22hide%22%3Atrue%7D&gradient=false' height="300" width="100%" />
 
 ## Getting Started
 
@@ -9,8 +9,6 @@ npm run dev
 # or
 yarn dev
 ```
-
-<img src='http://localhost:3000/api/social?heading=Hi%20I%27m%20Fayeed%20Pawaskar%20-%20%3Cbr%2F%3E%20Code%20Tinkerer%20%26%20Software%20Engineer&subheading=&social=%7B%22mail%22%3A%22%22%2C%22linkedIn%22%3A%22%22%2C%22github%22%3A%22%22%2C%22stackoverflow%22%3A%22%22%2C%22twitter%22%3A%22%22%2C%22rss%22%3A%22%22%7D&alignItems=flex-start&headingStyles=%7B%22fontSize%22%3A%22%22%2C%22textAlign%22%3A%22start%22%2C%22color%22%3A%22%22%2C%22thirdDim%22%3Afalse%2C%22lineHeight%22%3A%22%22%2C%22fontWeight%22%3A%22%22%7D&subheadingStyles=%7B%22fontSize%22%3A%22%22%2C%22textAlign%22%3A%22start%22%2C%22color%22%3A%22%22%2C%22thirdDim%22%3Afalse%2C%22lineHeight%22%3A%22%22%2C%22fontWeight%22%3A%22%22%7D&socialStyles=%7B%22fontSize%22%3A14%2C%22color%22%3A%22%22%2C%22iconColor%22%3A%22%22%2C%22lineHeight%22%3A1%2C%22fontWeight%22%3A500%7D&background=%7B%22color%22%3A%22%22%2C%22image%22%3A%22%22%2C%22size%22%3A%22contain%22%2C%22repeat%22%3A%22no-repeat%22%2C%22position%22%3A%22center%22%7D&border=%7B%22size%22%3A4%2C%22color%22%3A%22%22%2C%22radius%22%3A8%7D&avatarStyles=%7B%22height%22%3A320%2C%22width%22%3A250%2C%22reverse%22%3Afalse%2C%22name%22%3A%22%22%2C%22hide%22%3Afalse%7D' height="100%" width="100%" />
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
